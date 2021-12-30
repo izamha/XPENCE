@@ -19,6 +19,10 @@ It's divided into two directories namely, expense(which contains django API) and
 6. In case <b>Step 5</b> throws an error about the python version used with project not being the same as the one installed on your PC, navigate into the project folder `expense` and look for a file called `Pipfile` and change to your python's version i.e `python_version = "3.8"`
 7. To stop/exit the pipenv shell, type `CTRL + C`
 
+## API Documentation
+
+https://documenter.getpostman.com/view/12136698/UVRHh2nb
+
 ## Frontend with VueJS + Vuetify
 
 Assuming you already have `npm` or `yarn` and Node.js installed
