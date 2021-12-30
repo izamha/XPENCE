@@ -1,0 +1,24 @@
+{% load static %}
+{% block content %}
+
+    {% if account.name %}
+        <div class="account-info">
+            <h1>{{ account.name }}</h1>
+            <h5>Amount: {{ total_amount }} Rwf</h5>
+            <hr>
+            <!-- Expense and Income per account per user -->
+            <h5>Expense(s): {{ expense }} Rwf</h5>
+            <h5>Income(s): {{ income }} Rwf</h5>
+        </div>
+    {% else %}
+        <div class="account-info">
+            <h1>All Accounts</h1>
+            <h5>Amount: {{ total_amount }} Rwf</h5>
+            <hr>
+             <!-- Total Expense and Income of all accounts per user -->
+            <h5>Expense(s): {{ expenses_cash }} Rwf</h5>
+            <h5>Income(s): {{ income_cash }} Rwf</h5>
+        </div>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,5 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+    <h1 style="text-align: center;">Logged Out, <a href="{% url 'users:login' %}">Login Again</a> </h1>
+{% endblock %}

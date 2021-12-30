@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'jquery/jquery-3.6.0.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'fa/css/all.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+
+    <!-- Font styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+          rel="stylesheet">
+
+    <title>
+        {% if title %}
+            XPENCE - {{ title }}
+        {% endif %}
+    </title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><b><img src="{% static 'images/XPENCE/XPENCE.png' %}" alt="logo"></b></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            </ul>
+            <span class="navbar-text">
+            {% if request.user.is_authenticated %}
+                <a class="nav-link" href="{% url 'users:logout' %}">Logout <i
+                        class="fa fa-sign-out"></i></a>
+            {% else %}
+                <a class="nav-link" href="{% url 'users:login' %}">Login<i
+                        class="fa fa-sign-in"></i></a>
+
+            {% endif %}
+          </span>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row" style="margin-bottom: 0.2rem">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            {# row and column to display the messages #}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<div class="wrapper">
+
+    {% include 'includes/sidebar.html' %}
+
+    <div class="main-panel">
+
+      <div class="content">
+        {% block content %}
+        {% endblock content %}
+
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

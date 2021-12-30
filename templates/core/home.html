@@ -1,0 +1,41 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- Include the account details -->
+    {% include 'includes/account_details.html' %}
+
+    <!-- New Expense -->
+    <div class="col" style="padding-left: 3rem; padding-top: 1.5rem;">
+        <button class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#addExpenseModal"><i
+                class="fa fa-plus-money-bill"></i> New Expense
+        </button>
+    </div>
+
+    <!-- New Income -->
+    <div class="col" style="padding-left: 3rem; padding-top: 1.2rem;">
+        <button class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#addIncomeModal"><i
+                class="fa fa-plus-money-bill"></i> New Income
+        </button>
+    </div>
+
+    <!-- New Category -->
+    <div class="col" style="padding-left: 3rem; padding-top: 1.2rem;">
+        <button class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#addCategoryModal"><i class="fa fa-money"></i> New Category
+        </button>
+    </div>
+
+    <!-- Include the modals -->
+    {% include 'core/modals/new_account_modal.html' %}
+    {% include 'core/modals/new_expense_modal.html' %}
+    {% include 'core/modals/new_income_modal.html' %}
+    {% include 'core/modals/new_category_modal.html' %}
+    {% include 'core/modals/profile_modal.html' %}
+
+{% endblock %}

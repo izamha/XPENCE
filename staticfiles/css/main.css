@@ -1,0 +1,78 @@
+:root {
+    --yellow: #ECAA11;
+    --yello-hover: #cb9706;
+    --violet: #5E419A;
+    --almost-muted: #7B728D;
+    --black-bold: #000000;
+
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+
+a {
+    color: var(--yellow);
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a:hover {
+    color: var(--yello-hover);
+    text-decoration: none;
+}
+
+
+.container {
+    /*background-color: #487c96;*/
+}
+
+.my-accounts {
+    padding: 1.5rem;
+    text-align: left;
+    font: normal normal bold 16px/25px Poppins;
+    letter-spacing: 0;
+    color: var(--black-bold);
+    opacity: 1;
+}
+
+.my-accounts .fa-plus-circle {
+    font-size: 20px;
+    padding-left: 1.5rem;
+    color: var(--yellow);
+}
+
+.my-accounts .fa-plus-circle:hover {
+    color: var(--yello-hover);
+    cursor: pointer;
+}
+
+/* Show an active tab muri sidebar */
+.nav .active-nav {
+    top: 200px;
+    left: 32px;
+    height: 43px;
+    background: #EEE4F8 0 0 no-repeat padding-box;
+    border-radius: 8px;
+    opacity: 1;
+}
+
+.nav li i.fa {
+    color: var(--almost-muted);
+}
+
+.account-info {
+    padding: 16px;
+    color: var(--black-bold);
+    background: #899ebd;
+    width: 350px;
+    border-radius: 10px;
+}
+
+.no-accounts {
+    padding-top: 28px;
+    padding-bottom: 28px;
+    padding-left: 52px;
+    font-size: 14px;
+}

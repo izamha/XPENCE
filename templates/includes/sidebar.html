@@ -1,0 +1,66 @@
+<div class="sidebar">
+    <div class="sidebar-wrapper">
+        <div class="my-accounts">
+            <p><b>MY ACCOUNTS</b> <i class="fa fa-plus-circle"
+                              data-bs-toggle="modal"
+                              data-bs-target="#addAccountModal"></i>
+            </p>
+            <ul class="nav">
+                <!-- List of All accounts -->
+
+                {% if request.user.is_authenticated %}
+                    <li class="{% if not the_account.id %} active-nav {% endif %}">
+                        <a href="/">
+                            <p class="text-muted">All Accounts</p>
+                        </a>
+                    </li>
+
+                    {% if accounts %}
+                        {% for account in accounts %}
+                            <li class="{% if account.id == the_account.id %} active-nav {% endif %}">
+                                <a href="{% url 'core:account-detail' account.id %}">
+                                    <p class="text-muted">{% if account.name != "" %}{{ account.name }}{% endif %}</p>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    {% else %}
+                        <div class="no-accounts">
+                            <p class="text-muted">No Account(s) Yet.</p>
+                        </div>
+                    {% endif %}
+
+                    <hr class="divider">
+
+                    <li class="{% if 'maps' in segment %} active {% endif %}">
+                        <a href="">
+                            <i class="fa fa-cog"></i>
+                            <p class="text-muted">Preferences</p>
+                        </a>
+                    </li>
+
+                    <li class="{% if 'maps' in segment %} active {% endif %}">
+                        <a data-bs-toggle="modal" data-bs-target="#profileModal">
+                            <i class="fa fa-users-cog"></i>
+                            <p class="text-muted">My Profile</p>
+                        </a>
+                    </li>
+
+{#                    <li class="{% if 'core:test' in segment %} active {% endif %}">#}
+{#                        <a href="{% url 'core:test' %}">#}
+{#                            <i class="fa fa-coins"></i>#}
+{#                            <p class="text-muted"><b>TEST</b></p>#}
+{#                        </a>#}
+{#                    </li>#}
+                {% else %}
+                    <li class="active">
+                        <a href="{% url 'users:login' %}">
+                            <i class="fa fa-sign-in"></i>
+                            <p>Login</p>
+                        </a>
+                    </li>
+                {% endif %}
+
+            </ul>
+        </div>
+    </div>
+</div>
